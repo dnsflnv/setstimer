@@ -1,0 +1,40 @@
+name: setstimer
+description: Timer for sets in powerlifting/bodybuilding/fitness.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 0.1.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_markdown: ^0.4.3
+  url_launcher: ^5.5.2
+  provider: ^4.3.2+2
+  table_calendar: ^2.3.0
+  cupertino_icons: ^1.0.0
+  multiplatform_widgets:
+    path: ../multiplatform_widgets/
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  intl_translation: ^0.17.10
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/ 
+    - assets/texts/en/
+    - assets/texts/ru_RU/
+
+flutter_intl:
+  enabled: true
+  main_locale: en
