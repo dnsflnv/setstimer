@@ -2,23 +2,26 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:setstimer/config.dart';
-import 'package:setstimer/generated/l10n.dart';
-import 'package:setstimer/screens/home_screen.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 // Localization
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'config.dart';
+import 'package:setstimer/generated/l10n.dart';
+import 'package:provider/provider.dart';
+
+import 'models/set_rest.dart';
 
 void main() {
-  if (!kIsWeb && (Platform.isMacOS || Platform.isIOS)) {
-    runApp(AppCupertino());
-  } else {
-    runApp(AppMaterial());
-  }
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => SetRestData()),
+      ],
+      child: (!kIsWeb && (Platform.isMacOS || Platform.isIOS))
+          ? AppCupertino()
+          : AppMaterial(),
+    ),
+  );
 }
-
-Map<String, Widget Function(BuildContext)> appRoutes = {
-  HomeScreen.id: (context) => HomeScreen(),
-};
 
 class AppMaterial extends StatelessWidget {
   @override
@@ -32,18 +35,10 @@ class AppMaterial extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       onGenerateTitle: (BuildContext context) => S.of(context).title,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        buttonColor: Colors.blue,
-        brightness: Brightness.light,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.teal,
-      ),
-      initialRoute: HomeScreen.id,
-      routes: appRoutes,
+      theme: kMaterialLight,
+      darkTheme: kMaterialDark,
+      initialRoute: kInitialRoute,
+      routes: kAppRoutes,
     );
   }
 }
@@ -60,9 +55,9 @@ class AppCupertino extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       onGenerateTitle: (BuildContext context) => S.of(context).title,
-      theme: cupertinoTheme(),
-      initialRoute: HomeScreen.id,
-      routes: appRoutes,
+      theme: kCupertinoTheme,
+      initialRoute: kInitialRoute,
+      routes: kAppRoutes,
     );
   }
 }

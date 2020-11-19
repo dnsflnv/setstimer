@@ -44,6 +44,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Sets`
+  String get sets {
+    return Intl.message(
+      'Sets',
+      name: 'sets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rest time (seconds)`
+  String get rest {
+    return Intl.message(
+      'Rest time (seconds)',
+      name: 'rest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start`
+  String get start {
+    return Intl.message(
+      'Start',
+      name: 'start',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` from `
+  String get from {
+    return Intl.message(
+      ' from ',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rest`
+  String get restButton {
+    return Intl.message(
+      'Rest',
+      name: 'restButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Perfom the set, and when you're done, press the button.`
+  String get setsText {
+    return Intl.message(
+      'Perfom the set, and when you\'re done, press the button.',
+      name: 'setsText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
