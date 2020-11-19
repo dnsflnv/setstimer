@@ -1,10 +1,11 @@
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multiplatform_widgets/multiplatform_widgets.dart';
-import 'train_screen.dart';
 import 'package:provider/provider.dart';
+
 import '../../models/set_rest.dart';
-import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'train_screen.dart';
 
 class TimerScreen extends StatelessWidget {
   static const String id = '/timer';
@@ -78,7 +79,7 @@ class TimerScreen extends StatelessWidget {
                         context, ModalRoute.withName(TrainScreen.id));
                   } else {
                     Provider.of<SetRestData>(context, listen: false)
-                        .increseCurrentSet();
+                        .increaseCurrentSet();
                     Navigator.pop(context);
                   }
                 },

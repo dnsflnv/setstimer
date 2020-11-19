@@ -1,12 +1,14 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'set_screen.dart';
-import 'package:provider/provider.dart';
-import 'package:multiplatform_widgets/multiplatform_widgets.dart';
-import '../../models/set_rest.dart';
-import 'package:setstimer/generated/l10n.dart';
 import 'dart:io' show Platform;
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:multiplatform_widgets/multiplatform_widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:setstimer/generated/l10n.dart';
+
+import '../../models/set_rest.dart';
+import 'set_screen.dart';
 
 class TrainScreen extends StatelessWidget {
   static String id = '/'; //'/train';
@@ -37,7 +39,7 @@ class TrainScreen extends StatelessWidget {
                           .decreaseSets,
                   increaseCallback:
                       Provider.of<SetRestData>(context, listen: false)
-                          .increseSets,
+                          .increaseSets,
                 ),
                 SizedBox(
                   height: 40,
@@ -50,7 +52,7 @@ class TrainScreen extends StatelessWidget {
                           .decreaseRest,
                   increaseCallback:
                       Provider.of<SetRestData>(context, listen: false)
-                          .increseRest,
+                          .increaseRest,
                 ),
                 SizedBox(
                   height: 40,
