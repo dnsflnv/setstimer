@@ -7,7 +7,6 @@ Mail to [denis@filonov.pro](mailto://denis@filonov.pro)
 
 or create issure [here](https://github.com/filonov/kachculator/issues).
 
----
-
-- [Version History](history.md) 
+- [License](LICENSE.md)
+- [Version History](CHANGELOG.md) 
 - [Privacy Policy](privacy.md)
