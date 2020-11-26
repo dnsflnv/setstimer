@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'screens/about_screen.dart';
 import 'screens/timer/set_screen.dart';
 import 'screens/timer/timer_screen.dart';
 import 'screens/timer/train_screen.dart';
@@ -37,4 +38,5 @@ final Map<String, Widget Function(BuildContext)> kAppRoutes = {
   TrainScreen.id: (context) => TrainScreen(),
   SetScreen.id: (context) => SetScreen(),
   TimerScreen.id: (context) => TimerScreen(),
+  AboutScreen.id: (context) => AboutScreen(),
 };

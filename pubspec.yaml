@@ -20,6 +20,9 @@ dependencies:
   multiplatform_widgets:
     git: 
       url: git://github.com/filonov/multiplatform_widgets.git
+  flutter_markdown: ^0.4.4
+  url_launcher: ^5.5.2
+  package_info_plus: ^0.5.0
   
 dev_dependencies:
   flutter_test:

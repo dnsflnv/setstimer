@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "about" : MessageLookupByLibrary.simpleMessage("О приложении"),
     "from" : MessageLookupByLibrary.simpleMessage(" из "),
     "rest" : MessageLookupByLibrary.simpleMessage("Время отдыха в секундах"),
     "restButton" : MessageLookupByLibrary.simpleMessage("Отдых"),
