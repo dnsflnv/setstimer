@@ -16,6 +16,7 @@ dependencies:
   provider: ^4.3.2+2
   cupertino_icons: ^1.0.0
   circular_countdown_timer: ^0.0.7
+  audioplayers: ^0.17.0
   multiplatform_widgets:
     git: 
       url: git://github.com/filonov/multiplatform_widgets.git
@@ -32,6 +33,7 @@ flutter:
     - assets/images/ 
     - assets/texts/en/
     - assets/texts/ru_RU/
+    - assets/sounds/
 
 flutter_intl:
   enabled: true
