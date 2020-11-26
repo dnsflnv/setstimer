@@ -20,7 +20,13 @@ class SetScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(S.of(context).setsText),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    S.of(context).setsText,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 SizedBox(height: 50),
                 Text(
                   '${Provider.of<SetRestData>(context).currentSet} ${S.of(context).from} ${Provider.of<SetRestData>(context).sets}',
