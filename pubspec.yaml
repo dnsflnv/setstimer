@@ -37,6 +37,7 @@ flutter:
     - assets/texts/en/
     - assets/texts/ru_RU/
     - assets/sounds/
+    - CHANGELOG.md
 
 flutter_intl:
   enabled: true

@@ -34,7 +34,7 @@ class TrainScreen extends StatelessWidget {
 
     String about = await _loadAsset("assets/texts/$myLocale/about.md");
     about = about.replaceAll('%version%', version);
-    String history = ''; //await _loadAsset("CHANGELOG.md");
+    String history = await _loadAsset("CHANGELOG.md");
     Navigator.push(
       context,
       mpPageRoute(
