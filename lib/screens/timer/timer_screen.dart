@@ -3,12 +3,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multiplatform_widgets/multiplatform_widgets.dart';
 import 'package:provider/provider.dart';
-
+import 'package:audioplayers/audio_cache.dart';
 import '../../models/set_rest.dart';
 import 'train_screen.dart';
 
 class TimerScreen extends StatelessWidget {
   static const String id = '/timer';
+
+  void playSound() {
+    final player = AudioCache();
+    try {
+      player.play('sounds/444672__tissman__cool-tone.wav');
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +77,7 @@ class TimerScreen extends StatelessWidget {
                 onComplete: () {
                   // Here, do whatever you want
                   //print('Countdown Ended');
+                  playSound();
 
                   int curSet = Provider.of<SetRestData>(context, listen: false)
                       .currentSet;
