@@ -56,82 +56,73 @@ class TrainScreen extends StatelessWidget {
     TextEditingController tcRest = TextEditingController(
         text: '${Provider.of<SetRestData>(context).rest}');
 
-    return SafeArea(
-      child: MpScaffold(
-        appBar: MpAppBar(
-          title: Text(S.of(context).title),
-          button: MpLinkButton(
-            label: S.of(context).about,
-            onPressed: () {
-              // Navigator.pushNamed(context, AboutPage.id);
-              getAboutPage(context);
-            },
-          ),
+    return MpScaffold(
+      appBar: MpAppBar(
+        title: Text(S.of(context).title),
+        button: MpLinkButton(
+          label: S.of(context).about,
+          onPressed: () {
+            // Navigator.pushNamed(context, AboutPage.id);
+            getAboutPage(context);
+          },
         ),
-        body: Container(
-          constraints: BoxConstraints.expand(),
-          child: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(S.of(context).sets),
-                ChangeIntField(
-                  value: Provider.of<SetRestData>(context).sets,
-                  decreaseCallback:
-                      Provider.of<SetRestData>(context, listen: false)
-                          .decreaseSets,
-                  increaseCallback:
-                      Provider.of<SetRestData>(context, listen: false)
-                          .increaseSets,
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Text(S.of(context).rest),
-                ChangeIntField(
-                  value: Provider.of<SetRestData>(context).rest,
-                  decreaseCallback:
-                      Provider.of<SetRestData>(context, listen: false)
-                          .decreaseRest,
-                  increaseCallback:
-                      Provider.of<SetRestData>(context, listen: false)
-                          .increaseRest,
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: MpButton(
-                    label: S.of(context).start,
-                    onPressed: () {
-                      int sts = 5;
-                      int rst = 90;
-                      try {
-                        sts = int.parse(tcSets.text);
-                      } catch (e) {
-                        sts = 0;
-                      }
-                      try {
-                        rst = int.parse(tcRest.text);
-                      } catch (e) {
-                        rst = 90;
-                      }
-                      Provider.of<SetRestData>(context, listen: false)
-                          .changeSets(sts);
-                      Provider.of<SetRestData>(context, listen: false)
-                          .changeRest(rst);
-                      Provider.of<SetRestData>(context, listen: false)
-                          .resetCurrentSet();
-                      Navigator.pushNamed(context, SetScreen.id);
-                    },
-                  ),
-                ),
-                // Text(
-                //     '${Provider.of<SetRestData>(context, listen: false).sets}'),
-              ],
+      ),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(S.of(context).sets),
+            ChangeIntField(
+              value: Provider.of<SetRestData>(context).sets,
+              decreaseCallback:
+                  Provider.of<SetRestData>(context, listen: false).decreaseSets,
+              increaseCallback:
+                  Provider.of<SetRestData>(context, listen: false).increaseSets,
             ),
-          ),
+            SizedBox(
+              height: 40,
+            ),
+            Text(S.of(context).rest),
+            ChangeIntField(
+              value: Provider.of<SetRestData>(context).rest,
+              decreaseCallback:
+                  Provider.of<SetRestData>(context, listen: false).decreaseRest,
+              increaseCallback:
+                  Provider.of<SetRestData>(context, listen: false).increaseRest,
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MpButton(
+                label: S.of(context).start,
+                onPressed: () {
+                  int sts = 5;
+                  int rst = 90;
+                  try {
+                    sts = int.parse(tcSets.text);
+                  } catch (e) {
+                    sts = 0;
+                  }
+                  try {
+                    rst = int.parse(tcRest.text);
+                  } catch (e) {
+                    rst = 90;
+                  }
+                  Provider.of<SetRestData>(context, listen: false)
+                      .changeSets(sts);
+                  Provider.of<SetRestData>(context, listen: false)
+                      .changeRest(rst);
+                  Provider.of<SetRestData>(context, listen: false)
+                      .resetCurrentSet();
+                  Navigator.pushNamed(context, SetScreen.id);
+                },
+              ),
+            ),
+            // Text(
+            //     '${Provider.of<SetRestData>(context, listen: false).sets}'),
+          ],
         ),
       ),
     );
