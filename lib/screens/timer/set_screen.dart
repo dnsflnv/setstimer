@@ -14,30 +14,32 @@ class SetScreen extends StatelessWidget {
     return MpScaffold(
       appBar: MpAppBar(title: Text(S.of(context).title)),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                S.of(context).setsText,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  S.of(context).setsText,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 50),
+              Text(
+                '${Provider.of<SetRestData>(context).currentSet} ${S.of(context).from} ${Provider.of<SetRestData>(context).sets}',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 textAlign: TextAlign.center,
               ),
-            ),
-            SizedBox(height: 50),
-            Text(
-              '${Provider.of<SetRestData>(context).currentSet} ${S.of(context).from} ${Provider.of<SetRestData>(context).sets}',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 50),
-            MpButton(
-              label: S.of(context).restButton,
-              onPressed: () {
-                Navigator.pushNamed(context, TimerScreen.id);
-              },
-            ),
-          ],
+              SizedBox(height: 50),
+              MpButton(
+                label: S.of(context).restButton,
+                onPressed: () {
+                  Navigator.pushNamed(context, TimerScreen.id);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
