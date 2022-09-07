@@ -1,10 +1,5 @@
-import 'dart:io' show Platform;
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:multiplatform_widgets/multiplatform_widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:setstimer/generated/l10n.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -15,7 +10,7 @@ import 'set_screen.dart';
 class TrainScreen extends StatelessWidget {
   static String id = '/'; //'/train';
 
-  const TrainScreen({Key key}) : super(key: key);
+  const TrainScreen({super.key});
 
   Future<String> _loadAsset(String path) async {
     return await rootBundle.loadString(path);
@@ -32,12 +27,12 @@ class TrainScreen extends StatelessWidget {
     String version = packageInfo.version;
     //String buildNumber = packageInfo.buildNumber;
 
-    String about = await _loadAsset("assets/texts/$myLocale/about.md");
+    String about = await _loadAsset('assets/texts/$myLocale/about.md');
     about = about.replaceAll('%version%', version);
-    String history = await _loadAsset("CHANGELOG.md");
+    String history = await _loadAsset('CHANGELOG.md');
     Navigator.push(
       context,
-      mpPageRoute(
+      MaterialPageRoute(
         builder: (context) {
           return AboutScreen(
             about: about,
@@ -56,16 +51,17 @@ class TrainScreen extends StatelessWidget {
     TextEditingController tcRest = TextEditingController(
         text: '${Provider.of<SetRestData>(context).rest}');
 
-    return MpScaffold(
-      appBar: MpAppBar(
+    return Scaffold(
+      appBar: AppBar(
         title: Text(S.of(context).title),
-        button: MpLinkButton(
-          label: S.of(context).about,
-          onPressed: () {
-            // Navigator.pushNamed(context, AboutPage.id);
-            getAboutPage(context);
-          },
-        ),
+        actions: [
+          MaterialButton(
+            child: Text(S.of(context).about),
+            onPressed: () {
+              getAboutPage(context);
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(
@@ -79,7 +75,7 @@ class TrainScreen extends StatelessWidget {
               increaseCallback:
                   Provider.of<SetRestData>(context, listen: false).increaseSets,
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Text(S.of(context).rest),
@@ -90,13 +86,13 @@ class TrainScreen extends StatelessWidget {
               increaseCallback:
                   Provider.of<SetRestData>(context, listen: false).increaseRest,
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: MpButton(
-                label: S.of(context).start,
+              child: ElevatedButton(
+                child: Text(S.of(context).start),
                 onPressed: () {
                   int sts = 5;
                   int rst = 90;
@@ -131,26 +127,23 @@ class TrainScreen extends StatelessWidget {
 
 class ChangeIntField extends StatelessWidget {
   final int value;
-  final Function increaseCallback;
-  final Function decreaseCallback;
+  final void Function() increaseCallback;
+  final void Function() decreaseCallback;
 
   const ChangeIntField({
-    Key key,
-    this.value,
-    this.decreaseCallback,
-    this.increaseCallback,
-  }) : super(key: key);
+    super.key,
+    required this.value,
+    required this.decreaseCallback,
+    required this.increaseCallback,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Expanded(
-          child: RoundIconButton(
-            icon: Icons.arrow_back_ios_rounded,
-            fillColor: (!kIsWeb && (Platform.isMacOS || Platform.isIOS))
-                ? CupertinoTheme.of(context).barBackgroundColor
-                : Theme.of(context).bottomAppBarColor,
+          child: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_rounded),
             onPressed: decreaseCallback,
           ),
         ),
@@ -158,16 +151,13 @@ class ChangeIntField extends StatelessWidget {
           width: 60.0,
           child: Text(
             value.toString(),
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
             textAlign: TextAlign.center,
           ),
         ),
         Expanded(
-          child: RoundIconButton(
-            icon: Icons.arrow_forward_ios_rounded,
-            fillColor: (!kIsWeb && (Platform.isMacOS || Platform.isIOS))
-                ? CupertinoTheme.of(context).barBackgroundColor
-                : Theme.of(context).bottomAppBarColor,
+          child: IconButton(
+            icon: const Icon(Icons.arrow_forward_ios_rounded),
             onPressed: increaseCallback,
           ),
         ),

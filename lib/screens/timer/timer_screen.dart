@@ -1,30 +1,31 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:multiplatform_widgets/multiplatform_widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import '../../models/set_rest.dart';
 import 'train_screen.dart';
 
 class TimerScreen extends StatelessWidget {
   static const String id = '/timer';
 
+  const TimerScreen({super.key});
+
   void playSound() {
-    final player = AudioCache();
+    final player = AudioPlayer();
     try {
-      player.play('sounds/444672__tissman__cool-tone.wav');
+      player.play(AssetSource('sounds/444672__tissman__cool-tone.wav'),
+          mode: PlayerMode.lowLatency);
     } catch (e) {
-      print(e);
+      //print(e);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     int duration = Provider.of<SetRestData>(context).rest;
-    CountDownController _controller = CountDownController();
+    CountDownController controller = CountDownController();
 
-    return MpScaffold(
+    return Scaffold(
       //appBar: MpAppBar(title: Text(S.of(context).title)),
       body: SafeArea(
         child: Center(
@@ -35,16 +36,13 @@ class TimerScreen extends StatelessWidget {
               duration: duration,
 
               // Controller to control (i.e Pause, Resume, Restart) the Countdown
-              controller: _controller,
+              controller: controller,
 
               // Width of the Countdown Widget
               width: MediaQuery.of(context).size.width / 2,
 
               // Height of the Countdown Widget
               height: MediaQuery.of(context).size.height / 2,
-
-              // Default Color for Countdown Timer
-              color: Colors.white,
 
               // Filling Color for Countdown Timer
               fillColor: Colors.blueAccent,
@@ -91,6 +89,7 @@ class TimerScreen extends StatelessWidget {
                   Navigator.pop(context);
                 }
               },
+              ringColor: Colors.transparent,
             ),
           ),
         ),

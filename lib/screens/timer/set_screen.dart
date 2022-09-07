@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:multiplatform_widgets/multiplatform_widgets.dart';
 import 'timer_screen.dart';
 import 'package:provider/provider.dart';
 import '../../models/set_rest.dart';
@@ -9,10 +7,12 @@ import 'package:setstimer/generated/l10n.dart';
 class SetScreen extends StatelessWidget {
   static const String id = '/set';
 
+  const SetScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MpScaffold(
-      appBar: MpAppBar(title: Text(S.of(context).title)),
+    return Scaffold(
+      appBar: AppBar(title: Text(S.of(context).title)),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -25,15 +25,16 @@ class SetScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Text(
                 '${Provider.of<SetRestData>(context).currentSet} ${S.of(context).from} ${Provider.of<SetRestData>(context).sets}',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 50),
-              MpButton(
-                label: S.of(context).restButton,
+              const SizedBox(height: 50),
+              ElevatedButton(
+                child: Text(S.of(context).restButton),
                 onPressed: () {
                   Navigator.pushNamed(context, TimerScreen.id);
                 },

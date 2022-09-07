@@ -1,30 +1,26 @@
 name: setstimer
 description: Timer for sets in powerlifting/bodybuilding/fitness.
-
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
-version: 1.0.2+3
+version: 2.0.0+4 # AppStore +3, Play +3
+homepage: https://timer.norr.dev
 
 environment:
-  sdk: ">=2.10.4 <3.0.0"
+  sdk: ">=2.18.0 <3.3.0"
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  provider: ^4.3.2+2
-  cupertino_icons: ^1.0.0
-  circular_countdown_timer: ^0.0.7
-  audioplayers: ^0.17.0
-  multiplatform_widgets:
-    git: 
-      url: git://github.com/filonov/multiplatform_widgets.git
-  flutter_markdown: ^0.4.4
-  url_launcher: ^5.5.2
-  package_info_plus: ^0.5.0
+  provider: ^6.0.3
+  circular_countdown_timer: ^0.2.2
+  audioplayers: ^1.0.1
+  flutter_markdown: ^0.6.10+5
+  url_launcher: ^6.1.5
+  package_info_plus: ^1.4.3+1
   
 dev_dependencies:
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
   #intl_translation: ^0.17.10+1
@@ -32,13 +28,15 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/
-    - assets/images/ 
     - assets/texts/en/
-    - assets/texts/ru_RU/
+    - assets/texts/ru/
     - assets/sounds/
     - CHANGELOG.md
 
 flutter_intl:
   enabled: true
+  class_name: S
   main_locale: en
+  arb_dir: lib/l10n
+  output_dir: lib/generated
+  use_deferred_loading: false

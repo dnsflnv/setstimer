@@ -11,4 +11,4 @@ PRODUCT_NAME = setstimer
 PRODUCT_BUNDLE_IDENTIFIER = pro.filonov.setstimer
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2020 pro.filonov. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 pro.filonov. All rights reserved.
