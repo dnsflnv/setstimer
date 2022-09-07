@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'screens/timer/set_screen.dart';
 import 'screens/timer/timer_screen.dart';
 import 'screens/timer/train_screen.dart';
@@ -9,6 +7,7 @@ import 'screens/timer/train_screen.dart';
 
 /// Material light theme
 final ThemeData kMaterialLight = ThemeData(
+  useMaterial3: true,
   primarySwatch: Colors.blue,
   brightness: Brightness.light,
   visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -16,16 +15,9 @@ final ThemeData kMaterialLight = ThemeData(
 
 /// Material dark theme
 final ThemeData kMaterialDark = ThemeData(
+  useMaterial3: true,
   brightness: Brightness.dark,
   primarySwatch: Colors.teal,
-);
-
-/// Cupertino light & dark theme
-var brightness = SchedulerBinding.instance.window.platformBrightness;
-bool darkModeOn = brightness == Brightness.dark;
-
-final CupertinoThemeData kCupertinoTheme = CupertinoThemeData(
-  brightness: darkModeOn ? Brightness.dark : Brightness.light,
 );
 
 /// Route settings
