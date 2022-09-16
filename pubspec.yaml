@@ -18,9 +18,14 @@ dependencies:
     sdk: flutter
   flutter_markdown: ^0.6.10+5
   hydrated_bloc: ^8.1.0
+  number_inc_dec: ^0.8.0
   package_info_plus: ^1.4.3+1
   provider: ^6.0.3
   url_launcher: ^6.1.5
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding
+      path: plugins/window_size
 
 dev_dependencies:
   flutter_lints: ^2.0.1

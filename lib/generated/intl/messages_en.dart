@@ -24,12 +24,13 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "from": MessageLookupByLibrary.simpleMessage(" from "),
-        "rest": MessageLookupByLibrary.simpleMessage("Rest time (seconds)"),
+        "rest": MessageLookupByLibrary.simpleMessage("Rest time"),
         "restButton": MessageLookupByLibrary.simpleMessage("Rest"),
         "sets": MessageLookupByLibrary.simpleMessage("Sets"),
         "setsText": MessageLookupByLibrary.simpleMessage(
-            "Perfom the set, and when you\'re done, press the button."),
+            "Perform the set, and when you\'re done, press the button."),
         "start": MessageLookupByLibrary.simpleMessage("Start"),
-        "title": MessageLookupByLibrary.simpleMessage("Sets Timer")
+        "title": MessageLookupByLibrary.simpleMessage("Sets Interval Timer"),
+        "work": MessageLookupByLibrary.simpleMessage("Work time")
       };
 }

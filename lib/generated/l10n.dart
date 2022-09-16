@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Sets Timer`
+  /// `Sets Interval Timer`
   String get title {
     return Intl.message(
-      'Sets Timer',
+      'Sets Interval Timer',
       name: 'title',
       desc: '',
       args: [],
@@ -70,11 +70,21 @@ class S {
     );
   }
 
-  /// `Rest time (seconds)`
+  /// `Rest time`
   String get rest {
     return Intl.message(
-      'Rest time (seconds)',
+      'Rest time',
       name: 'rest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Work time`
+  String get work {
+    return Intl.message(
+      'Work time',
+      name: 'work',
       desc: '',
       args: [],
     );
@@ -110,10 +120,10 @@ class S {
     );
   }
 
-  /// `Perfom the set, and when you're done, press the button.`
+  /// `Perform the set, and when you're done, press the button.`
   String get setsText {
     return Intl.message(
-      'Perfom the set, and when you\'re done, press the button.',
+      'Perform the set, and when you\'re done, press the button.',
       name: 'setsText',
       desc: '',
       args: [],

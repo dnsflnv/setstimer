@@ -3,10 +3,12 @@ import 'package:flutter/foundation.dart';
 class SetRestData extends ChangeNotifier {
   int _sets = 5;
   int _rest = 90;
+  final int _work = 90;
   int _currentSet = 1;
 
   int get sets => _sets;
   int get rest => _rest;
+  int get work => _work;
   int get currentSet => _currentSet;
 
   void changeSets(int sets) {

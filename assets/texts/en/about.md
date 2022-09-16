@@ -1,7 +1,7 @@
-# SetsTimer %version%
-Timer for sets in powerlifting/bodybuilding/fitness.
+## SetsTimer %version%
+Interval timer for different kind of workouts.
 
-## Support or Contact
+### Support or Contact
 
-Mail to [denis@filonov.pro](mailto://denis@filonov.pro)
-or create issure [here](https://github.com/filonov/SetsTimer/issues).
+Mail to [mail@norr.dev](mailto://mail@norr.dev)
+or create issure [here](https://github.com/norrdev/SetsTimer/issues).
