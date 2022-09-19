@@ -5,7 +5,6 @@ class TimerScreen extends StatelessWidget {
   final int duration;
   final String label;
   final Color color;
-  final CountDownController controller;
   final void Function()? onComplete;
 
   const TimerScreen({
@@ -14,25 +13,23 @@ class TimerScreen extends StatelessWidget {
     this.onComplete,
     required this.label,
     required this.color,
-    required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
+    CountDownController controller = CountDownController();
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(label, style: Theme.of(context).textTheme.headline6),
           CircularCountDownTimer(
+            autoStart: true,
             duration: duration,
-            initialDuration: duration,
             controller: controller,
             width: MediaQuery.of(context).size.width / 1.5,
             height: MediaQuery.of(context).size.height / 1.5,
             fillColor: color,
-            backgroundColor: null,
-            strokeWidth: 10.0,
             textStyle: TextStyle(
               fontSize: MediaQuery.of(context).size.height / 12,
               color: color,
@@ -41,7 +38,10 @@ class TimerScreen extends StatelessWidget {
             isReverseAnimation: true,
             isTimerTextShown: true,
             onComplete: onComplete,
-            ringColor: Colors.transparent,
+            ringColor: Colors.grey[300]!, // Colors.transparent,
+            strokeCap: StrokeCap.round,
+            strokeWidth: 25.0,
+            backgroundColor: null,
           ),
         ],
       ),

@@ -1,6 +1,7 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:setstimer/utils/play_sound.dart';
+import 'package:wakelock/wakelock.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'timer_event.dart';
 part 'timer_state.dart';
@@ -8,7 +9,7 @@ part 'timer_state.dart';
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
   TimerBloc()
       : super(const Initial(
-            sets: 4, rest: 3, work: 3, isWork: true, current: 0)) {
+            sets: 4, rest: 120, work: 60, isWork: true, current: 0)) {
     on<SetsChanged>((event, emit) => emit(state.copyWith(sets: event.sets)));
     on<WorkChanged>((event, emit) => emit(state.copyWith(work: event.work)));
     on<RestChanged>((event, emit) => emit(state.copyWith(rest: event.rest)));
@@ -18,6 +19,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   }
 
   void _onStartPressed(event, emit) {
+    Wakelock.enable();
     emit(Work(
       sets: state.sets,
       work: state.work,
@@ -41,6 +43,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   void _onRestTimerFinished(event, emit) {
     playSound();
     if (state.current == state.sets) {
+      Wakelock.disable();
       emit(Initial(
           sets: state.sets,
           rest: state.rest,

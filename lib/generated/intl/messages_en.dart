@@ -27,10 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rest": MessageLookupByLibrary.simpleMessage("Rest time"),
         "restButton": MessageLookupByLibrary.simpleMessage("Rest"),
         "sets": MessageLookupByLibrary.simpleMessage("Sets"),
-        "setsText": MessageLookupByLibrary.simpleMessage(
-            "Perform the set, and when you\'re done, press the button."),
         "start": MessageLookupByLibrary.simpleMessage("Start"),
-        "title": MessageLookupByLibrary.simpleMessage("Sets Interval Timer"),
+        "title": MessageLookupByLibrary.simpleMessage("Sets Timer"),
         "work": MessageLookupByLibrary.simpleMessage("Work time")
       };
 }

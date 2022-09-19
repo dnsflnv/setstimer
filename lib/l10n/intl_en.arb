@@ -1,11 +1,10 @@
 {
-    "title": "Sets Interval Timer",
+    "title": "Sets Timer",
     "sets": "Sets",
     "rest": "Rest time",
     "work": "Work time",
     "start": "Start",
     "from": " from ",
     "restButton": "Rest",
-    "setsText": "Perform the set, and when you're done, press the button.",
     "about": "About"
 }

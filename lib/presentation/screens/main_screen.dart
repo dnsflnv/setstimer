@@ -1,4 +1,3 @@
-import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +16,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CountDownController controller = CountDownController();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).title),
@@ -40,24 +37,22 @@ class MainScreen extends StatelessWidget {
                 return StartScreen(state: state);
               } else if (state is Work) {
                 return TimerScreen(
-                  controller: controller,
+                  key: UniqueKey(),
                   duration: state.work,
-                  color: Colors.green,
+                  color: Colors.redAccent,
                   label: S.of(context).work,
                   onComplete: () {
                     context.read<TimerBloc>().add(WorkTimerFinished());
-                    //controller.start();
                   },
                 );
               } else if (state is Rest) {
                 return TimerScreen(
-                  controller: controller,
+                  key: UniqueKey(),
                   duration: state.rest,
-                  color: Colors.red,
+                  color: Colors.greenAccent,
                   label: S.of(context).rest,
                   onComplete: () {
                     context.read<TimerBloc>().add(RestTimerFinished());
-                    // controller.start();
                   },
                 );
               } else {

@@ -19,15 +19,6 @@ class StartScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         SpinEditInt(
-          label: S.of(context).sets,
-          initialValue: state.sets,
-          onChange: (val) =>
-              context.read<TimerBloc>().add(SetsChanged(val.toInt())),
-        ),
-        const SizedBox(
-          height: 40,
-        ),
-        SpinEditInt(
           label: S.of(context).work,
           initialValue: state.work,
           onChange: (val) =>
@@ -41,6 +32,15 @@ class StartScreen extends StatelessWidget {
           initialValue: state.rest,
           onChange: (val) =>
               context.read<TimerBloc>().add(RestChanged(val.toInt())),
+        ),
+        const SizedBox(
+          height: 40,
+        ),
+        SpinEditInt(
+          label: S.of(context).sets,
+          initialValue: state.sets,
+          onChange: (val) =>
+              context.read<TimerBloc>().add(SetsChanged(val.toInt())),
         ),
         const SizedBox(
           height: 40,

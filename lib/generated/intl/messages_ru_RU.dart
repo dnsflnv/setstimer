@@ -27,10 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rest": MessageLookupByLibrary.simpleMessage("Время отдыха"),
         "restButton": MessageLookupByLibrary.simpleMessage("Отдых"),
         "sets": MessageLookupByLibrary.simpleMessage("Количество подходов"),
-        "setsText": MessageLookupByLibrary.simpleMessage(
-            "Выполните подход, и когда закончите, нажмите кнопку."),
         "start": MessageLookupByLibrary.simpleMessage("Старт"),
-        "title": MessageLookupByLibrary.simpleMessage("Интервальный таймер"),
+        "title": MessageLookupByLibrary.simpleMessage("Таймер подходов"),
         "work": MessageLookupByLibrary.simpleMessage("Время работы")
       };
 }

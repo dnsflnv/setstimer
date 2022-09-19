@@ -16,9 +16,20 @@ abstract class TimerState extends Equatable {
   });
 
   @override
-  List<Object> get props => [sets, rest, work, isWork, current];
+  List<Object> get props {
+    return [
+      sets,
+      rest,
+      work,
+      isWork,
+      current,
+    ];
+  }
 
   TimerState copyWith({int sets, int work, int rest, bool isWork, int current});
+
+  @override
+  bool get stringify => true;
 }
 
 class Initial extends TimerState {
