@@ -24,12 +24,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("О приложении"),
         "from": MessageLookupByLibrary.simpleMessage(" из "),
-        "rest": MessageLookupByLibrary.simpleMessage("Время отдыха в секундах"),
+        "rest": MessageLookupByLibrary.simpleMessage("Время отдыха"),
         "restButton": MessageLookupByLibrary.simpleMessage("Отдых"),
         "sets": MessageLookupByLibrary.simpleMessage("Количество подходов"),
-        "setsText": MessageLookupByLibrary.simpleMessage(
-            "Выполните подход, и когда закончите, нажмите кнопку."),
         "start": MessageLookupByLibrary.simpleMessage("Старт"),
-        "title": MessageLookupByLibrary.simpleMessage("Таймер подходов")
+        "title": MessageLookupByLibrary.simpleMessage("Таймер подходов"),
+        "work": MessageLookupByLibrary.simpleMessage("Время работы")
       };
 }

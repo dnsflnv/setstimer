@@ -70,11 +70,21 @@ class S {
     );
   }
 
-  /// `Rest time (seconds)`
+  /// `Rest time`
   String get rest {
     return Intl.message(
-      'Rest time (seconds)',
+      'Rest time',
       name: 'rest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Work time`
+  String get work {
+    return Intl.message(
+      'Work time',
+      name: 'work',
       desc: '',
       args: [],
     );
@@ -105,16 +115,6 @@ class S {
     return Intl.message(
       'Rest',
       name: 'restButton',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Perfom the set, and when you're done, press the button.`
-  String get setsText {
-    return Intl.message(
-      'Perfom the set, and when you\'re done, press the button.',
-      name: 'setsText',
       desc: '',
       args: [],
     );

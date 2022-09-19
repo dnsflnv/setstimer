@@ -1,9 +1,11 @@
-# History
+## 2.0.0
+- Core refactoring.
+- Added work time.
 
-**1.0.1 (2020-11-27)**
+## 1.0.1
 
 - Fixed bug with iOS statusbar.
 
-**1.0 (2020-11-26)**
+## 1.0.0
 
 - First public version.

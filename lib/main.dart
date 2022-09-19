@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
-
-import 'config.dart';
+import 'package:setstimer/logic/bloc/timer_bloc.dart';
+import 'package:window_size/window_size.dart';
+import 'dart:io' show Platform;
 import 'generated/l10n.dart';
-import 'models/set_rest.dart';
+import 'presentation/screens/main_screen.dart';
+import 'theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowTitle('Sets timer');
+    setWindowMaxSize(const Size(400, 500));
+    setWindowMinSize(const Size(400, 500));
+  }
+
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => SetRestData()),
-      ],
+    BlocProvider(
+      create: (context) => TimerBloc(),
       child: const App(),
     ),
   );
@@ -31,10 +39,9 @@ class App extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       onGenerateTitle: (BuildContext context) => S.of(context).title,
-      theme: kMaterialLight,
-      darkTheme: kMaterialDark,
-      initialRoute: kInitialRoute,
-      routes: kAppRoutes,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      home: const MainScreen(),
     );
   }
 }

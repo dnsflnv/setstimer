@@ -1,0 +1,9 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "json",
+            "scheme": "file",
+            "pattern": "lib/l10n/intl_en.arb"
+        }
+    ]
+}
