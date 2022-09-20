@@ -18,7 +18,7 @@ class SpinEditInt extends StatelessWidget {
   Widget build(BuildContext context) {
     return NumberInputWithIncrementDecrement(
       key: key,
-      style: const TextStyle(fontSize: 40),
+      style: const TextStyle(fontSize: 24),
       widgetContainerDecoration: const BoxDecoration(),
       numberFieldDecoration: InputDecoration(
         labelText: label,

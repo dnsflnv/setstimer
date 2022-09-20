@@ -13,8 +13,8 @@ void main() async {
 
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     setWindowTitle('Sets timer');
-    setWindowMaxSize(const Size(400, 500));
-    setWindowMinSize(const Size(400, 500));
+    setWindowMaxSize(const Size(400, 600));
+    setWindowMinSize(const Size(400, 600));
   }
 
   runApp(

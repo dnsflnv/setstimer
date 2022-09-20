@@ -1,5 +1,5 @@
 ## SetsTimer %version%
-Interval timer for different kind of workouts.
+Interval timer.
 
 ### Support or Contact
 

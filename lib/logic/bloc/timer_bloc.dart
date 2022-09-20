@@ -16,10 +16,22 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     on<StartPressed>(_onStartPressed);
     on<WorkTimerFinished>(_onWorkTimerFinished);
     on<RestTimerFinished>(_onRestTimerFinished);
+    on<StopPressed>(_onStopPressed);
+  }
+
+  void _onStopPressed(event, emit) {
+    Wakelock.disable();
+    emit(Initial(
+        sets: state.sets,
+        rest: state.rest,
+        work: state.work,
+        isWork: state.isWork,
+        current: 0));
   }
 
   void _onStartPressed(event, emit) {
     Wakelock.enable();
+    playSoundAndVibrate();
     emit(Work(
       sets: state.sets,
       work: state.work,
@@ -30,7 +42,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   }
 
   void _onWorkTimerFinished(event, emit) {
-    playSound();
+    playSoundAndVibrate();
     emit(Rest(
       sets: state.sets,
       work: state.work,
@@ -41,7 +53,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   }
 
   void _onRestTimerFinished(event, emit) {
-    playSound();
+    playSoundAndVibrate();
     if (state.current == state.sets) {
       Wakelock.disable();
       emit(Initial(

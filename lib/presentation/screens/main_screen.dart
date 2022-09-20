@@ -18,10 +18,25 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).title),
+        title: BlocBuilder<TimerBloc, TimerState>(
+          builder: (context, state) {
+            if (state is Work) {
+              return Text(
+                S.of(context).work,
+                style: const TextStyle(color: Colors.redAccent),
+              );
+            } else if (state is Rest) {
+              return Text(
+                S.of(context).rest,
+                style: const TextStyle(color: Colors.greenAccent),
+              );
+            }
+            return Text(S.of(context).title);
+          },
+        ),
         actions: [
           MaterialButton(
-            child: Text(S.of(context).about),
+            child: const Icon(Icons.help_outline),
             onPressed: () {
               getAboutPage(context);
             },

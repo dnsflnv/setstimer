@@ -13,6 +13,8 @@ class WorkTimerFinished extends TimerEvent {}
 
 class RestTimerFinished extends TimerEvent {}
 
+class StopPressed extends TimerEvent {}
+
 class SetsChanged extends TimerEvent {
   final int sets;
 

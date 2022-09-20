@@ -1,11 +1,11 @@
 # SetsTimer
-Timer for sets in powerlifting/bodybuilding/fitness.
+Interval timer.
 
 ## Support or Contact
 
-Mail to [denis@filonov.pro](mailto://denis@filonov.pro)
+Mail to [mail@norr.dev](mailto://mail@norr.dev)
 
-or create issure [here](https://github.com/filonov/kachculator/issues).
+or create issure [here](https://github.com/norrdev/setstimer/issues).
 
 - [License](LICENSE.md)
 - [Version History](CHANGELOG.md) 
